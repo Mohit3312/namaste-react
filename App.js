@@ -1,3 +1,9 @@
+const reactHeader = React.createElement(
+  "div",
+  { id: "header" },
+  React.createElement("h1", {}, "I am header")
+);
+
 {
   /* 
     <div id="parent">
@@ -27,6 +33,9 @@ const parent = React.createElement("div", { id: "parent" }, [
 ]);
 
 console.log(parent); // object
+
+const header = ReactDOM.createRoot(document.getElementById("header"));
+header.render(reactHeader);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
