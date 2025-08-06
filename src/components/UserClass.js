@@ -5,6 +5,8 @@ class UserClass extends React.Component {
     super(props);
 
     this.state = {
+      count: 0,
+      count2: 1,
       userInfo: {
         name: "Dummy",
         location: "Default",
@@ -25,23 +27,66 @@ class UserClass extends React.Component {
     });
 
     console.log(json);
+
+    this.timer = setInterval(() => {
+      console.log("NAMASTE REACT OP");
+    }, 1000);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     console.log("Component Did Update");
+
+    if (
+      this.state.count !== prevState.count ||
+      this.state.count2 !== prevState.count2
+    ) {
+      console.log("Count is updated.");
+    }
+
+    if (this.state.count !== prevState.count) {
+      console.log("Count1 is updated.");
+    }
+
+    if (this.state.count2 !== prevState.count2) {
+      console.log("Count2 is updated.");
+    }
   }
 
   componentWillUnmount() {
+    clearInterval(this.timer);
     console.log("Component Will Unmount");
   }
 
   render() {
     console.log(this.props.name + " Child Render");
 
+    const { count, count2 } = this.state;
     const { name, location, avatar_url } = this.state.userInfo;
     return (
       <div className="user-card">
         <img src={avatar_url} />
+        <h1>Count: {count}</h1>
+        <button
+          onClick={() => {
+            // NEVER UPDATE STATE VARIABLE DIRECTLY
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }}
+        >
+          Count Increase
+        </button>
+        <h1>Count2: {count2}</h1>
+        <button
+          onClick={() => {
+            // NEVER UPDATE STATE VARIABLE DIRECTLY
+            this.setState({
+              count2: this.state.count2 + 1,
+            });
+          }}
+        >
+          Count2 Increase
+        </button>
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h4>Contact: @mohit3312</h4>
