@@ -63,7 +63,7 @@ class UserClass extends React.Component {
     const { count, count2 } = this.state;
     const { name, location, avatar_url } = this.state.userInfo;
     return (
-      <div className="user-card">
+      <div className="p-[10px] border border-solid border-black">
         <img src={avatar_url} />
         <h1>Count: {count}</h1>
         <button

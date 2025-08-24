@@ -20,7 +20,7 @@ const User = ({ name }) => {
   console.log("render");
 
   return (
-    <div className="user-card">
+    <div className="p-[10px] border border-solid border-black">
       <h1>Count = {count}</h1>
       <h1>Count = {count2}</h1>
       <h2>Name: {name}</h2>
