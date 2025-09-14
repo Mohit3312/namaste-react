@@ -6,18 +6,18 @@ const User = ({ name }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      console.log("NAMASTE REACT OP");
+      // console.log("NAMASTE REACT OP");
     }, 1000);
 
-    console.log("useEffect");
+    // console.log("useEffect");
 
     return () => {
       clearInterval(timer);
-      console.log("useEffect Return");
+      // console.log("useEffect Return");
     };
   }, []);
 
-  console.log("render");
+  // console.log("render");
 
   return (
     <div className="p-[10px] border border-solid border-black">
