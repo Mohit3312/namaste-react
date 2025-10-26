@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_URL } from "./constants";
+import { MENU_URL, RES_MENU_MOCK_RESPONSE } from "./constants";
 
 const useRestaurantMenu = (resId) => {
   const [resInfo, setResInfo] = useState(null);
@@ -10,7 +10,8 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenu = async () => {
     const data = await fetch(MENU_URL + resId);
-    const json = await data.json();
+    const json =
+      data?.status === 200 ? await data.json() : RES_MENU_MOCK_RESPONSE;
 
     const filteredResInfo = json?.data?.cards?.filter(
       (card) =>
