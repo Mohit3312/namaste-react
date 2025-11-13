@@ -17,6 +17,7 @@ const ItemList = ({ items, dummy }) => {
         const { id, name, description, imageId } = item?.card?.info;
         return (
           <div
+            data-testid="foodItem"
             key={id}
             className="m-2 pt-2 pb-4 border-gray-400 border-b text-left flex justify-between"
           >
